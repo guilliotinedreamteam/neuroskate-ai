@@ -1,0 +1,1 @@
+"""Computer Vision module for skateboarding trick analysis"""
