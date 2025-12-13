@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "ecom-dominator"
+version = "0.1.0"
+description = "Autonomous AI Agent for E-commerce Domination"
+authors = ["Jules <jules@google.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langgraph = "^0.0.10"
+langchain = "^0.1.0"
+langchain-google-genai = "^0.0.5"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+sqlalchemy = "^2.0.25"
+psycopg2-binary = "^2.9.9"
+pandas = "^2.2.0"
+streamlit = "^1.30.0"
+pydantic = "^2.6.0"
+requests = "^2.31.0"
+structlog = "^24.1.0"
+python-dotenv = "^1.0.1"
+redis = "^5.0.1"
+apscheduler = "^3.10.4"
+tenacity = "^8.2.3"
+xmltodict = "^0.13.0"
+requests-aws4auth = "^1.2.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+httpx = "^0.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
