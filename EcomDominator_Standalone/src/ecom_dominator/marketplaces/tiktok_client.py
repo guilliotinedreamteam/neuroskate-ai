@@ -30,10 +30,8 @@ class TikTokClient(MarketplaceAdapter):
         keys = sorted([k for k in params.keys() if k not in ["access_token", "sign"]])
 
         # 2. Concatenate keys and values
-        base_string = f"{self.app_key}" # Start with app_key? No, check doc: usually path + sorted params
         # Actual Algo:
         # string = app_secret + path + key1value1key2value2... + app_secret
-        # (Simplified standard structure, real doc varies slightly by version)
 
         param_str = ""
         for k in keys:
@@ -41,7 +39,8 @@ class TikTokClient(MarketplaceAdapter):
 
         sign_string = f"{self.app_secret}{path}{param_str}{self.app_secret}"
 
-        return hmac.new(sign_string.encode(), digestmod=hashlib.sha256).hexdigest()
+        # FIX: Key must be encoded secret, message is the sign_string
+        return hmac.new(self.app_secret.encode(), sign_string.encode(), digestmod=hashlib.sha256).hexdigest()
 
     def _request(self, method, path, params=None, json_data=None):
         timestamp = int(time.time())

@@ -27,6 +27,7 @@ services:
     volumes:
       - .:/app
     environment:
+      PYTHONPATH: /app/src
       DATABASE_URL: postgresql://${POSTGRES_USER:-ecom_user}:${POSTGRES_PASSWORD:-ecom_password}@db:5432/${POSTGRES_DB:-ecom_db}
       REDIS_URL: redis://redis:6379/0
       # REAL KEYS REQUIRED - Set these in .env file
